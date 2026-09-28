@@ -2,7 +2,7 @@
   box-sizing: border-box;
   padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
            env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
-  --u: 1vw; /* unidade base: escala com a largura e a altura do ecrã */
+  --u: 1vw;
 }
 @supports (width: min(1vw, 1vh)) { :root { --u: min(1vw, 1.8vh); } }
 
@@ -69,7 +69,7 @@ main { text-align: center; width: 100%; padding: 0 3vw; }
 .finished .timer { display: none; }
 .finished .done { display: block; }
 
-/* Fade in suave ao entrar no site */
+
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .unit, .done { animation: fadeIn 1.8s ease-out both; }
 .unit:nth-child(1) { animation-delay: 0.2s; }
@@ -78,7 +78,7 @@ main { text-align: center; width: 100%; padding: 0 3vw; }
 .unit:nth-child(4) { animation-delay: 0.8s; }
 @media (prefers-reduced-motion: reduce) { .unit, .done { animation: none; } }
 
-/* Telemóveis e ecrãs em vertical: números maiores para aproveitar a largura */
+
 @media (orientation: portrait) {
   .num, .done { font-size: 12vw; }
   .unit { margin: 0 2vw; }

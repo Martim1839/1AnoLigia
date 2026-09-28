@@ -1,5 +1,4 @@
-// Domingo, 4 de outubro de 2026, às 00:00 (hora local de quem abre a página)
-const target = new Date(2026, 9, 4, 0, 0, 0).getTime();
+const target = new Date('2026-10-04T00:00:00+01:00').getTime();
 
 const els = {
   d: document.getElementById('d'),
@@ -24,7 +23,6 @@ function tick() {
   els.m.textContent = pad(Math.floor(secs % 3600 / 60));
   els.s.textContent = pad(secs % 60);
 
-  // sincroniza com o início de cada segundo
   setTimeout(tick, 1000 - (Date.now() % 1000));
 }
 
