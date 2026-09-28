@@ -29,11 +29,17 @@ body {
 
 main { text-align: center; width: 100%; padding: 0 3vw; }
 
-.timer { display: flex; flex-wrap: nowrap; justify-content: center; align-items: flex-start; }
-.unit {
-  display: flex; flex-direction: column; align-items: center;
-  margin: 0 2vw; margin: 0 calc(var(--u) * 2.2);
+/* 4 colunas com a mesma largura: espaçamento igual entre números */
+.timer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+  column-gap: 2vw; column-gap: calc(var(--u) * 2.2);
+  align-items: start;
 }
+.unit { display: flex; flex-direction: column; align-items: center; }
 
 .num {
   font-family: 'Barlow Condensed', 'Arial Narrow', Impact, sans-serif;
@@ -81,6 +87,6 @@ main { text-align: center; width: 100%; padding: 0 3vw; }
 
 @media (orientation: portrait) {
   .num, .done { font-size: 12vw; }
-  .unit { margin: 0 2vw; }
-  .label { font-size: 9px; font-size: max(9px, 2.4vw); margin-top: 2vw; }
+  .timer { column-gap: 1.5vw; }
+  .label { font-size: 9px; font-size: max(9px, 2.4vw); margin-top: 2vw; letter-spacing: 0.22em; padding-left: 0.22em; }
 }
