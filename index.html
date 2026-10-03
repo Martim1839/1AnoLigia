@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Contagem decrescente</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400&family=Inter:wght@400;500&family=Press+Start+2P&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,8 +19,61 @@
         <div class="unit"><div class="num" id="m">00</div><div class="label">minutos</div></div>
         <div class="unit"><div class="num" id="s">00</div><div class="label">segundos</div></div>
     </div>
-    <div class="done">Chegou o dia.</div>
+    <div class="done" id="scene">
+        <div class="bubble" id="bubble" aria-live="polite">
+            <span class="t-full" id="bfull" aria-hidden="true"></span><span class="t-live" id="blive"></span>
+        </div>
+        <div class="bip" id="bip" role="img" aria-label="Bip, a mascote"><div class="dot" id="dot"></div></div>
+    </div>
 </main>
+<canvas id="rain" aria-hidden="true"></canvas>
+<canvas id="fx" aria-hidden="true"></canvas>
+<canvas id="color" aria-hidden="true"></canvas>
+<svg id="flower" class="flower" viewBox="0 100 400 500" aria-label="Flor"></svg>
+<p id="hint" class="hint">Clica na flor</p>
+<div id="story" class="story" aria-label="História">
+    <div class="scwrap"><canvas id="scv" width="320" height="180"></canvas><img id="blurp" class="blurp" src="Blurp.png" alt=""></div>
+    <button id="sskip" class="sskip" type="button">Saltar</button>
+    <p id="stext" class="stext"><span class="t-full" id="sfull" aria-hidden="true"></span><span class="s-live" id="slive"></span></p>
+</div>
+<div id="gwrap" class="gwrap" aria-label="Mini-jogo">
+    <canvas id="game" width="320" height="176"></canvas>
+    <div id="gcap" class="gcap"></div>
+    <div id="dbox" class="dbox"><span class="t-full" id="dfull" aria-hidden="true"></span><span class="dlive" id="dtext"></span><i class="dnext"></i></div>
+</div>
+<div id="gctl" class="gctl" aria-hidden="true">
+    <div class="gpad"><button data-k="up" aria-label="Cima"></button><button data-k="left" aria-label="Esquerda"></button><button data-k="right" aria-label="Direita"></button><button data-k="down" aria-label="Baixo"></button></div>
+    <button class="gact" data-k="act" aria-label="Interagir"></button>
+</div>
+<div id="quiz" class="quiz" role="dialog" aria-label="Quem disse esta frase?">
+    <button id="qexit" class="sskip" type="button">Sair</button>
+    <p class="qprog" id="qprog"></p>
+    <p class="qq"><span class="t-full" id="qfull" aria-hidden="true"></span><span class="q-live" id="qlive"></span></p>
+    <div class="qopts" id="qopts"></div>
+    <p class="qfb" id="qfb"></p>
+</div>
+<div id="pquiz" class="quiz" role="dialog" aria-label="Foto mais recente ou mais antiga?">
+    <button id="pqexit" class="sskip" type="button">Sair</button>
+    <p class="qprog" id="pqprog"></p>
+    <p class="qq"><span class="t-full" id="pqfull" aria-hidden="true"></span><span class="q-live" id="pqlive"></span></p>
+    <div class="qphotos" id="pqphotos"></div>
+    <div class="qopts" id="pqopts"></div>
+    <p class="qfb" id="pqfb"></p>
+</div>
+<div id="prefquiz" class="quiz" role="dialog" aria-label="O que é que o teu namorado prefere?">
+    <button id="pfexit" class="sskip" type="button">Sair</button>
+    <p class="qprog" id="pfprog"></p>
+    <p class="qq"><span class="t-full" id="pffull" aria-hidden="true"></span><span class="q-live" id="pflive"></span></p>
+    <div class="qopts" id="pfopts"></div>
+    <p class="qfb" id="pffb"></p>
+</div>
 <script src="script.js"></script>
+<script src="game.js"></script>
+<script src="story.js"></script>
+<script src="quiz.js"></script>
+<script src="photos.js"></script>
+<script src="photoquiz.js"></script>
+<script src="prefquiz.js"></script>
+<script src="final.js"></script>
 </body>
 </html>
